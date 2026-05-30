@@ -1,0 +1,13 @@
+
+# Keep only the project setup and the POM_and_hooks test suite
+*
+!.gitignore
+!.github/
+!.github/**
+!package.json
+!package-lock.json
+!playwright.config.js
+!tests/
+tests/*
+!tests/POM_and_hooks/
+!tests/POM_and_hooks/**

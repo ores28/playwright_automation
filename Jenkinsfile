@@ -9,7 +9,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/ores28/playwright_automation.git'
+                checkout scm
             }
         }
 

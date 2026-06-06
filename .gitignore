@@ -1,13 +1,31 @@
 
 # Keep only the project setup and the POM_and_hooks test suite
-*
-!.gitignore
-!.github/
-!.github/**
-!package.json
-!package-lock.json
-!playwright.config.js
-!tests/
-tests/*
-!tests/POM_and_hooks/
-!tests/POM_and_hooks/**
+.gitignore
+node_modules/
+.github/
+.github/**
+# package.json
+# package-lock.json
+# !playwright.config.js
+# !tests/
+# tests/*
+# !tests/POM_and_hooks/
+# !tests/POM_and_hooks/**
+
+// Ignore all other files and directories expect for: 
+
+playwright-report/
+test-results/
+
+automationpractice/
+Login/
+uploading_files/
+yatra/
+blogspot.spec.js
+change_password.js
+example.spec.js
+salesforce_contact.spec.js
+testautomationexercise.spec.js
+testsalesforcepage.spec.js
+testsample1.spec.js
+account_information.js

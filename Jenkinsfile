@@ -15,20 +15,30 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'npm install'
+                bat 'npm ci'
+                bat 'npx playwright install --with-deps'
             }
         }
 
-        stage('Install Browsers') {
-            steps {
-                bat 'npx playwright install'
-            }
-        }
-
-        stage('Run Tests') {
+        stage('Run Playwright Tests') {
             steps {
                 bat 'npx playwright test'
             }
+        }
+    }
+
+    post {
+        always {
+            junit 'test-results/junit-report.xml'
+
+            publishHTML(target: [
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'Playwright Report'
+            ])
         }
     }
 }

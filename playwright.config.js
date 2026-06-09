@@ -14,7 +14,7 @@ export default defineConfig({
   // Show status in Jenkins console and create reports for Jenkins to publish.
   reporter: [
     ['list'],
-    ['html', { outputFolder: 'playwright-report' }],
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
     ['junit', { outputFile: 'test-results/junit-report.xml' }]
   ],
 

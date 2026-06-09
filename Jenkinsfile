@@ -10,6 +10,7 @@ pipeline {
     }
 
     environment {
+        CI = 'true'
         PLAYWRIGHT_BROWSERS_PATH = 'C:\\playwright-browsers'
     }
 

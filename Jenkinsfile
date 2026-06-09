@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    options {
+        timeout(time: 10, unit: 'MINUTES')
+    }
+
     tools {
         nodejs 'NodeJS26'
     }
@@ -34,7 +38,7 @@ pipeline {
 
     post {
         always {
-            junit 'test-results/junit-report.xml'
+            junit testResults: 'test-results/junit-report.xml'
 
             publishHTML(target: [
                 allowMissing: true,

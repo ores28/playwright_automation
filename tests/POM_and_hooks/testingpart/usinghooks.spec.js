@@ -49,7 +49,7 @@ test.afterEach(async ({ page }, testInfo) => {
             // sanitize title for a safe filename on all platforms
             const safeTitle = testInfo.title.replace(/[<>:"/\\|?*]+/g, '_');
             const filePath = `${dir}/${safeTitle}.png`;
-            if (!page.isClosed && !page.isClosed()) {
+            if (!page.isClosed()) {
                 await page.screenshot({ path: filePath, fullPage: true });
                 console.log('Saved failure screenshot:', filePath);
             } else {

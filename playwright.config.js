@@ -11,8 +11,9 @@ export default defineConfig({
 
   workers: process.env.CI ? 1 : undefined,
 
-  // FIXED: Add BOTH reporters
+  // Show status in Jenkins console and create reports for Jenkins to publish.
   reporter: [
+    ['list'],
     ['html', { outputFolder: 'playwright-report' }],
     ['junit', { outputFile: 'test-results/junit-report.xml' }]
   ],

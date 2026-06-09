@@ -5,6 +5,10 @@ pipeline {
         nodejs 'NodeJS26'
     }
 
+    environment {
+        PLAYWRIGHT_BROWSERS_PATH = 'C:\\playwright-browsers'
+    }
+
     stages {
 
         stage('Checkout') {
@@ -15,8 +19,9 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
+                bat 'if not exist "C:\\playwright-browsers" mkdir C:\\playwright-browsers'
                 bat 'npm ci'
-                bat 'npx playwright install --with-deps'
+                bat 'npx playwright install'
             }
         }
 

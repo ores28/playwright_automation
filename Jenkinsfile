@@ -22,7 +22,7 @@ pipeline {
 
         stage('Run Playwright Tests') {
             steps {
-                bat 'npx playwright test Automation_testing/POM_and_hooks/testingpart/usinghooks.spec.js --headed project==msedge'
+                bat 'npx playwright test tests/POM_and_hooks/testingpart/usinghooks.spec.js --project="Microsoft Edge"'
             }
         }
     }

@@ -25,7 +25,7 @@ export default defineConfig({
 
     screenshot: 'only-on-failure', //  debugging
 
-    video: 'retain-on-failure', //  debugging
+    video: process.env.CI ? 'off' : 'retain-on-failure', //  debugging
   },
 
   projects: [

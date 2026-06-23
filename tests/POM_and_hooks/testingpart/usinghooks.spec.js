@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-const { HomePage } = require('../pages/HomePage');
+const { HomePage } = require('../pages/HomePage'); 
 const { LoginPage } = require('../pages/LoginPage');
 const { SignupPage } = require('../pages/SignupPage');
 const { ProductPage } = require('../pages/ProductPage');
@@ -11,6 +11,8 @@ const fs = require('fs');
 
 let home, login, signup, product, cart;
 let user;
+
+test.describe.configure({ mode: 'serial' });
 
 test.beforeEach(async ({ page }) => {
 

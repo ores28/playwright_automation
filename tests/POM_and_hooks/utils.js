@@ -24,7 +24,8 @@ function generatePassword() {
 function generateEmail() {
     const domains = ['example.com', 'test.com', 'demo.com'];
     const randomDomain = domains[Math.floor(Math.random() * domains.length)]; // Randomly select a domain from the list eg kritika28@example.com
-    return `${generateUsername()}${Math.floor(Math.random() * 1000)}@${randomDomain}`; // Generate a random email address using the username and a random number to ensure uniqueness
+    const uniqueId = `${Date.now()}${Math.floor(Math.random() * 100000)}`;
+    return `${generateUsername()}${uniqueId}@${randomDomain}`; // Generate a unique email address for signup tests
 }
 
 //generate day function

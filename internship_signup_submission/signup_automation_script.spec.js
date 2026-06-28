@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const MailosaurClient = require('mailosaur');
+const path = require('path');
 const { generateUsername, generateLastName, generateEmail, generatePhoneNumber, generatePassword, 
     generateAgencyName, generateRole, generateAgencyEmail, generateWebsite, generateAddress
  } = require('./utils');
@@ -89,5 +90,23 @@ test('complete signup flow', async ({ page }) => {
     await page.getByLabel('Universities').check();
     await page.getByLabel('Colleges').check();
     await page.getByRole('textbox', { name: 'Certification Details (Optional)' }).fill('Certified Business Partner');
+
+    //File Upload
+    const fileInputs = page.locator('input[type="file"]');
+    await fileInputs.nth(0).setInputFiles(
+        path.join(__dirname, 'Sample_business_registration.jpg')
+    );
+    await fileInputs.nth(1).setInputFiles(
+        path.join(__dirname, 'Educational_certificate.pdf')
+    );
+    await page.getByText('Add Documents', { exact: true }).click();
+    const element3 = await page.locator('div').filter({hasText: 'Upload a file or drag and drop'}).nth(2);
+    await fileInputs.nth(2).setInputFiles(
+        path.join(__dirname, 'Sample_business_registration.jpg')
+    );
+    await page.getByRole('button', { name: 'Submit' }).click();
+    await page.waitForTimeout(5000);
+    //wait for  page to go to next link
+    await expect(page).toHaveURL('https://authorized-partner.vercel.app/admin');
     await page.waitForTimeout(5000);
 });

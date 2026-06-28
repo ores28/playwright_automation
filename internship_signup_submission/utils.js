@@ -23,6 +23,7 @@ function generatePhoneNumber() {
     return `98${Math.floor(10000000 + Math.random() * 90000000)}`;
 }
 
+//generate random password
 function generatePassword(length = 8) {
     const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const lowercase = "abcdefghijklmnopqrstuvwxyz";
@@ -43,6 +44,7 @@ function generatePassword(length = 8) {
     return password;
 }
 
+//generate random agency name, role, email, website, and address
 function generateAgencyName() {
     const agencyNames = ['Tech Solutions', 'Creative Minds', 'InnovateX', 'Global Ventures', 'NextGen Agency'];
     return agencyNames[Math.floor(Math.random() * agencyNames.length)];

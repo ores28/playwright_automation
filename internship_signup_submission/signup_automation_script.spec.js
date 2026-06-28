@@ -60,6 +60,34 @@ test('complete signup flow', async ({ page }) => {
     await page.getByRole('textbox', { name: 'Search...' }).fill('Nepal');
     await page.getByText('Nepal', { exact: true }).click();
     await page.getByRole('button', { name: 'Next' }).click();
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(1000);
 
+    //Professional Experience
+    // await page.locator('button[role="combobox"]').click({ force: true });
+    const combo = page.getByLabel('Years of Experience').first();
+    await combo.click();
+    console.log(await combo.getAttribute('aria-expanded'));
+    await page.locator('span:text-is("5 years")').click();
+    await page.locator('input[name="number_of_students_recruited_annually"]').fill('15000');
+    await page.getByRole('textbox', { name: 'Focus Area' }).fill('Software Development');
+    await page.locator('input[name="success_metrics"]').fill('90');
+    await page.getByLabel('Career Counseling').click();
+    await page.getByRole('button', { name: 'Next' }).click();
+    await page.waitForTimeout(1000);
+
+    //Provide Business Details and Set Preferences
+    await page.getByRole('textbox', { name: 'Business Registration Number' }).fill('BRN123456');
+    const countriesBox = page.getByText('Select Your Preferred Countries');
+    await countriesBox.click();
+    const preferredCountries = await page.getByRole('textbox', { name: 'Search...' });
+    await preferredCountries.fill('Nepal');
+    await page.getByText('Nepal', { exact: true }).click();
+    await preferredCountries.fill('India');
+    await page.getByText('India', { exact: true }).click();
+    await preferredCountries.fill('Pakistan');
+    await page.getByText('Pakistan', { exact: true }).click();
+    await page.getByLabel('Universities').check();
+    await page.getByLabel('Colleges').check();
+    await page.getByRole('textbox', { name: 'Certification Details (Optional)' }).fill('Certified Business Partner');
+    await page.waitForTimeout(5000);
 });

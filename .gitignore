@@ -2,6 +2,7 @@
 # Keep only the project setup and the POM_and_hooks test suite
 .gitignore
 node_modules/
+.env
 .github/
 .github/**
 # package.json
@@ -30,3 +31,4 @@ testsalesforcepage.spec.js
 testsample1.spec.js
 account_information.js
 Manual-Testing/
+

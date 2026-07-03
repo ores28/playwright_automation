@@ -49,6 +49,6 @@ Commands:
 The test run was recorded automatically through Playwright.
 Video link : https://drive.google.com/file/d/1WneNMkg_gLeEILmY2ejB1iuI_ARA92Zz/view?usp=sharing
 
-If you also need a report file, export or print the Playwright HTML report as `test_report.pdf` after the run.
+If you also need a report file, export or print the Playwright HTML report as `test_report.pdf` after the run or open the Playwright Test Report.pdf.
 
 
